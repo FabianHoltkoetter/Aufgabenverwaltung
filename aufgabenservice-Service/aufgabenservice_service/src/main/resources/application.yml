@@ -1,0 +1,91 @@
+# Service Info
+spring:
+  profiles:
+    active: local
+
+  #i18n
+  messages:
+      basename: message
+      cache-seconds: -1
+      encoding: UTF-8
+  #JPA
+  jpa:
+    hibernate:
+        ddl-auto: update
+        naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        show-sql: false
+    # Hibernate search
+    properties.hibernate.search.default:
+        directory_provider : filesystem
+        indexBase : /tmp/gaiaservice
+    # Spring data rest
+  data.rest:
+      return-body-on-update : true
+      return-body-on-create : true
+
+ribbon:
+  eureka:
+    enabled: true
+
+info.url: http://localhost:${service.port}/
+service:
+    info:
+        oid: GAIA-GAIA
+        name: Gaia
+        version: v1.0
+
+#
+management.address: 127.0.0.1
+endpoints.shutdown.enabled: true
+
+# Let flyway recreate the DB if validation fails.
+flyway.clean-on-validation-error : true
+
+logging.level.org.springframework.cloud.netflix.config : 'OFF'
+logging.level.com.netflix.discovery : 'OFF'
+
+#Wiremock
+URL : http://localhost:8089/
+
+# Security
+security.oauth2.resource.jwt.keyValue: secret
+
+---
+spring:
+    profiles: docker
+    #DB
+    datasource:
+        url: jdbc:h2:mem:data_ref
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+        poolSize: 30
+    #JPA
+    jpa:
+        database: H2
+---
+spring:
+    profiles: local
+    #DB
+    datasource:
+        url: jdbc:h2:mem:data_ref
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+        poolSize: 30
+    #JPA
+    jpa:
+        database: H2
+---
+spring:
+    profiles: vm
+    #DB
+    datasource:
+        url: jdbc:h2:mem:data_ref
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+        poolSize: 30
+    #JPA
+    jpa:
+        database: H2
