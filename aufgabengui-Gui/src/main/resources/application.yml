@@ -67,31 +67,8 @@ i18n.de-DE.tokenfield.conversion.error:
 #=======================================#
 #                Views                  #
 #=======================================#
-i18n.de-DE.view_.mitarbeiterErstellen.title : MitarbeiterErstellen
-i18n.de-DE.view_.mitarbeiterErstellen.component1.button.save.label : Save
-i18n.de-DE.view_.mitarbeiterErstellen.helptext : Für diese Seite existiert keine Beschreibung
-
-i18n.de-DE.view_.mitarbeiter.title : Mitarbeiter
-i18n.de-DE.view_.mitarbeiter.button.informieren.label : Informieren
-i18n.de-DE.view_.mitarbeiter.component2.button.detail.label : Detail
-i18n.de-DE.view_.mitarbeiter.component2.button.edit.label : Edit
-i18n.de-DE.view_.mitarbeiter.component2.button.create.label : Create
-i18n.de-DE.view_.mitarbeiter.helptext : Für diese Seite existiert keine Beschreibung
-
 i18n.de-DE.view_.mainview.title : Mainview
 i18n.de-DE.view_.mainview.helptext : Für diese Seite existiert keine Beschreibung
-
-i18n.de-DE.view_.aufgaben.title : Aufgaben
-i18n.de-DE.view_.aufgaben.component1.button.edit.label : Edit
-i18n.de-DE.view_.aufgaben.component1.button.detail.label : Detail
-i18n.de-DE.view_.aufgaben.component1.button.create.label : Create
-i18n.de-DE.view_.aufgaben.helptext : Für diese Seite existiert keine Beschreibung
-
-i18n.de-DE.view_.aufgabeBearbeiten.title : AufgabeBearbeiten
-i18n.de-DE.view_.aufgabeBearbeiten.component1.button.detail.label : Detail
-i18n.de-DE.view_.aufgabeBearbeiten.component1.button.add.label : Add
-i18n.de-DE.view_.aufgabeBearbeiten.component1.button.create.label : Create
-i18n.de-DE.view_.aufgabeBearbeiten.helptext : Für diese Seite existiert keine Beschreibung
 
 i18n.de-DE.view_.aufgabeErstellen.title : AufgabeErstellen
 i18n.de-DE.view_.aufgabeErstellen.component1.button.save.label : Save
@@ -101,16 +78,34 @@ i18n.de-DE.view_.bearbeiterHinzufuegen.title : BearbeiterHinzufuegen
 i18n.de-DE.view_.bearbeiterHinzufuegen.component1.button.save.label : Save
 i18n.de-DE.view_.bearbeiterHinzufuegen.helptext : Für diese Seite existiert keine Beschreibung
 
+i18n.de-DE.view_.aufgabeBearbeiten.title : AufgabeBearbeiten
+i18n.de-DE.view_.aufgabeBearbeiten.component2.button.create.label : Create
+i18n.de-DE.view_.aufgabeBearbeiten.component2.button.add.label : Add
+i18n.de-DE.view_.aufgabeBearbeiten.component2.button.detail.label : Detail
+i18n.de-DE.view_.aufgabeBearbeiten.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.mitarbeiterErstellen.title : MitarbeiterErstellen
+i18n.de-DE.view_.mitarbeiterErstellen.component1.button.save.label : Save
+i18n.de-DE.view_.mitarbeiterErstellen.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.aufgaben.title : Aufgaben
+i18n.de-DE.view_.aufgaben.component1.button.detail.label : Detail
+i18n.de-DE.view_.aufgaben.component1.button.create.label : Create
+i18n.de-DE.view_.aufgaben.component1.button.edit.label : Edit
+i18n.de-DE.view_.aufgaben.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.mitarbeiter.title : Mitarbeiter
+i18n.de-DE.view_.mitarbeiter.component1.button.detail.label : Detail
+i18n.de-DE.view_.mitarbeiter.component1.button.edit.label : Edit
+i18n.de-DE.view_.mitarbeiter.component1.button.create.label : Create
+i18n.de-DE.view_.mitarbeiter.button.informieren.label : Informieren
+i18n.de-DE.view_.mitarbeiter.helptext : Für diese Seite existiert keine Beschreibung
+
 #=======================================#
 # Service: AufgabenService
 #=======================================#
 
 # Icons (no localization)
-## Entity Mitarbeiter - Icons
-mitarbeiter:
-   name.column_header.icon :
-   mail.column_header.icon :
-
 ## Entity Aufgabe - Icons
 aufgabe:
    beschreibung.column_header.icon :
@@ -118,98 +113,11 @@ aufgabe:
    faelligAm.column_header.icon :
    bearbeiter.column_header.icon :
 
-# Entity Mitarbeiter
-i18n.de-DE.mitarbeiter.form:
-   update.headline.label : Mitarbeiter bearbeiten
-   create.headline.label : Mitarbeiter erstellen
-   add.headline.label : Mitarbeiter hinzufügen
-   read.headline.label : Mitarbeiter Details
-   history.headline.label : Mitarbeiter History
-   update.button.label : bearbeiten
-   create.button.label : neu
-   cancel.button.label : abbrechen
-   back.button.label : zurück
-   save.button.label : speichern
-   add.button.label : hinzufügen
-   delete.button.label : löschen
-   copy.button.label : kopieren
-   read.button.label : Details
-
-i18n.de-DE.mitarbeiter.table_buttons.column_header : Aktionen
-
-## Entity Mitarbeiter - Attribute Name
-i18n.de-DE.mitarbeiter.name:
-   label : Name*
-   column_header : Name
-   input_prompt : Name
-   tooltip : 
-## Entity Mitarbeiter - Attribute Mail
-i18n.de-DE.mitarbeiter.mail:
-   label : Mail*
-   column_header : Mail
-   input_prompt : Mail
-   tooltip : 
-
-## Entity Mitarbeiter - Aktionsmeldungen
-
-### Entity Mitarbeiter - Success
-i18n.de-DE.mitarbeiter.notification.success:
-   update.label : Mitarbeiter angepasst
-   update.text : Mitarbeiter wurde erfolgreich angepasst und gespeichert.
-   save.label : Mitarbeiter erstellt
-   save.text : Mitarbeiter wurde erfolgreich erstellt und gespeichert.
-   delete.label : Mitarbeiter gelöscht
-   delete.text : Mitarbeiter wurde erfolgreich gelöscht.
-   copy.label : Mitarbeiter kopiert
-   copy.text : Mitarbeiter wurde erfolgreich kopiert.
-   release.label : Mitarbeiter entfernt
-   release.text : Mitarbeiter wurde erfolgreich entfernt.
-   add.label : Mitarbeiter hinzugefügt
-   add.text : Mitarbeiter wurde erfolgreich zum Mitarbeiter hinzugefügt.
-   association.label : Änderung gespeichert
-   association.text : Die Änderung wurde erfolgreich gespeichert.
-   
-### Entity Mitarbeiter - Warnings
-i18n.de-DE.mitarbeiter.notification.warning:
-   save.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
-   save.label : Warnung
-   update.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
-   update.label : Warnung
-
-### Entity Mitarbeiter - Errors
-i18n.de-DE.mitarbeiter.notification.error.create:
-   label.timeout : Zeitüberschreitung
-   text.timeout : Beim Versuch die Daten zu speichern ist eine Zeitüberschreitung aufgetreten.
-   label : Fehler
-   text : Beim erstellen ist ein Fehler aufgetreten.
-
-i18n.de-DE.mitarbeiter.notification.error.update:
-   label.timeout : Zeitüberschreitung
-   text.timeout : Beim Versuch die Daten zu ändern ist eine Zeitüberschreitung aufgetreten.
-   label : Fehler
-   text : Beim ändern ist ein Fehler aufgetreten. Änderung wurde nicht gespeichert.
-
-i18n.de-DE.mitarbeiter.notification.error.read:
-   label.timeout : Zeitüberschreitung
-   text.timeout : Beim Versuch die Daten zu laden ist eine Zeitüberschreitung aufgetreten.
-   label : Fehler
-   text : Beim Lesen ist ein Fehler aufgetreten.
-
-i18n.de-DE.mitarbeiter.notification.error.association:
-   label.timeout : Zeitüberschreitung
-   text.timeout : Beim Versuch die Assoziation zu ändern ist eine Zeitüberschreitung aufgetreten.
-   label : Fehler
-   text : Beim ändern der Assoziation ist ein Fehler aufgetreten.
-
-i18n.de-DE.mitarbeiter.notification.error.delete:
-   label.timeout : Zeitüberschreitung
-   text.timeout : Beim Versuch die Daten zu löschen ist eine Zeitüberschreitung aufgetreten.
-   label.409 : Konflikt
-   text.409 : Mitarbeiter wird in anderer Entität referenziert. Löschen nicht möglich.
-   label.400 : Nicht gefunden
-   text.400 : Mitarbeiter existiert nicht.
-   label : Fehler
-   text : Ein Fehler ist aufgetreten. Löschen nicht möglich.
+## Entity Mitarbeiter - Icons
+mitarbeiter:
+   name.column_header.icon :
+   mail.column_header.icon :
+   geburtsdatum.column_header.icon :
 
 # Entity Aufgabe
 i18n.de-DE.aufgabe.form:
@@ -316,6 +224,105 @@ i18n.de-DE.aufgabe.notification.error.delete:
    text.409 : Aufgabe wird in anderer Entität referenziert. Löschen nicht möglich.
    label.400 : Nicht gefunden
    text.400 : Aufgabe existiert nicht.
+   label : Fehler
+   text : Ein Fehler ist aufgetreten. Löschen nicht möglich.
+
+# Entity Mitarbeiter
+i18n.de-DE.mitarbeiter.form:
+   update.headline.label : Mitarbeiter bearbeiten
+   create.headline.label : Mitarbeiter erstellen
+   add.headline.label : Mitarbeiter hinzufügen
+   read.headline.label : Mitarbeiter Details
+   history.headline.label : Mitarbeiter History
+   update.button.label : bearbeiten
+   create.button.label : neu
+   cancel.button.label : abbrechen
+   back.button.label : zurück
+   save.button.label : speichern
+   add.button.label : hinzufügen
+   delete.button.label : löschen
+   copy.button.label : kopieren
+   read.button.label : Details
+
+i18n.de-DE.mitarbeiter.table_buttons.column_header : Aktionen
+
+## Entity Mitarbeiter - Attribute Name
+i18n.de-DE.mitarbeiter.name:
+   label : Name*
+   column_header : Name
+   input_prompt : Name
+   tooltip : 
+## Entity Mitarbeiter - Attribute Mail
+i18n.de-DE.mitarbeiter.mail:
+   label : Mail*
+   column_header : Mail
+   input_prompt : Mail
+   tooltip : 
+## Entity Mitarbeiter - Attribute Geburtsdatum
+i18n.de-DE.mitarbeiter.geburtsdatum:
+   label : Geburtsdatum*
+   column_header : Geburtsdatum
+   input_prompt : Geburtsdatum
+   tooltip : 
+
+## Entity Mitarbeiter - Aktionsmeldungen
+
+### Entity Mitarbeiter - Success
+i18n.de-DE.mitarbeiter.notification.success:
+   update.label : Mitarbeiter angepasst
+   update.text : Mitarbeiter wurde erfolgreich angepasst und gespeichert.
+   save.label : Mitarbeiter erstellt
+   save.text : Mitarbeiter wurde erfolgreich erstellt und gespeichert.
+   delete.label : Mitarbeiter gelöscht
+   delete.text : Mitarbeiter wurde erfolgreich gelöscht.
+   copy.label : Mitarbeiter kopiert
+   copy.text : Mitarbeiter wurde erfolgreich kopiert.
+   release.label : Mitarbeiter entfernt
+   release.text : Mitarbeiter wurde erfolgreich entfernt.
+   add.label : Mitarbeiter hinzugefügt
+   add.text : Mitarbeiter wurde erfolgreich zum Mitarbeiter hinzugefügt.
+   association.label : Änderung gespeichert
+   association.text : Die Änderung wurde erfolgreich gespeichert.
+   
+### Entity Mitarbeiter - Warnings
+i18n.de-DE.mitarbeiter.notification.warning:
+   save.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   save.label : Warnung
+   update.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   update.label : Warnung
+
+### Entity Mitarbeiter - Errors
+i18n.de-DE.mitarbeiter.notification.error.create:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu speichern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim erstellen ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.update:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern ist ein Fehler aufgetreten. Änderung wurde nicht gespeichert.
+
+i18n.de-DE.mitarbeiter.notification.error.read:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu laden ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim Lesen ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.association:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Assoziation zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern der Assoziation ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.delete:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu löschen ist eine Zeitüberschreitung aufgetreten.
+   label.409 : Konflikt
+   text.409 : Mitarbeiter wird in anderer Entität referenziert. Löschen nicht möglich.
+   label.400 : Nicht gefunden
+   text.400 : Mitarbeiter existiert nicht.
    label : Fehler
    text : Ein Fehler ist aufgetreten. Löschen nicht möglich.
 

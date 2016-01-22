@@ -74,8 +74,9 @@ public class Mitarbeiter_Form extends BaseComponent {
 
 		final TextField name = formUtil.createTextField(Mitarbeiter_.Field.name.name());
 		final TextField mail = formUtil.createTextField(Mitarbeiter_.Field.mail.name());
+		final DateField geburtsdatum = formUtil.createDateField(Mitarbeiter_.Field.geburtsdatum.name());
 		
-        return Arrays.asList(name, mail);
+        return Arrays.asList(name, mail, geburtsdatum);
     }
 
     /**

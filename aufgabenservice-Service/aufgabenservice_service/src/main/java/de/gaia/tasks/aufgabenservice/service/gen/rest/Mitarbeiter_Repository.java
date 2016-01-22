@@ -138,7 +138,9 @@ public interface Mitarbeiter_Repository extends CrudRepository<Mitarbeiter_, Lon
 	
 	Mitarbeiter_ findByName(@Param(value= "name") String name);
 	Mitarbeiter_ findByMail(@Param(value= "mail") String mail);
+	Mitarbeiter_ findByGeburtsdatum(@Param(value= "geburtsdatum") java.util.Date geburtsdatum);
 	List<Mitarbeiter_> findMitarbeiterByName(@Param("name") String name);
 	List<Mitarbeiter_> findMitarbeiterByMail(@Param("mail") String mail);
+	List<Mitarbeiter_> findMitarbeiterByGeburtsdatum(@Param("geburtsdatum") String geburtsdatum);
 	
 }
