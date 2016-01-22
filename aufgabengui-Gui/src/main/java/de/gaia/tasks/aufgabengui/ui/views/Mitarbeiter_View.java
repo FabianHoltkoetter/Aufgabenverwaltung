@@ -1,5 +1,6 @@
 package de.gaia.tasks.aufgabengui.ui.views;
 
+import de.gaia.tasks.aufgabenservice.guilib.gen.services.BusinessActionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.spring.annotation.SpringView;
@@ -30,6 +31,9 @@ public class Mitarbeiter_View extends DefaultView{
 
 	@Autowired
 	private Mitarbeiter_ViewController mitarbeiterController;
+
+	@Autowired
+	private BusinessActionsService businessActionsService;
 	
 	@Override
 	protected void init(){
@@ -39,6 +43,10 @@ public class Mitarbeiter_View extends DefaultView{
         addComponent(pageTitle);
 		
 		final ActionButton component1 = new ActionButton(MainUI.getCurrentI18nResolver().resolve("view_.mitarbeiter.button.informieren.label"), SimpleAction.none);
+		component1.addActionPerformer(clickEvent -> {
+			businessActionsService.mitarbeiterInformieren();
+			return true;
+		});
 		component1.setId("informieren-");
 		
 		final Mitarbeiter_Grid component2 = new Mitarbeiter_Grid(mitarbeiterController

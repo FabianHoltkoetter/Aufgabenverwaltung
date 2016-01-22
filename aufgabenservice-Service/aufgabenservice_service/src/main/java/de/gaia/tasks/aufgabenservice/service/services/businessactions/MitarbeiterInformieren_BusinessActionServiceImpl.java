@@ -1,10 +1,23 @@
 package de.gaia.tasks.aufgabenservice.service.services.businessactions;
 
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import de.gaia.tasks.aufgabenservice.service.gen.rest.Aufgabe_Repository;
+import de.gaia.tasks.aufgabenservice.service.gen.rest.Mitarbeiter_Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import de.gaia.tasks.aufgabenservice.service.gen.services.businessactions.MitarbeiterInformieren_BusinessActionService;
+
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.text.DateFormat;
+import java.util.Properties;
+import java.util.stream.StreamSupport;
 
 /**
  * Provides a service to execute business-actions.
@@ -13,20 +26,52 @@ import de.gaia.tasks.aufgabenservice.service.gen.services.businessactions.Mitarb
 @Service
 @PreAuthorize("hasAuthority('AufgabenService_BUSINESSACTION_MitarbeiterInformieren')")
 public class MitarbeiterInformieren_BusinessActionServiceImpl implements MitarbeiterInformieren_BusinessActionService {
-	// If you need access to the database you can autowire a Repository.
-	// Repositories are generated into the package: .gen.rest
-	//
-	// @Autowired
-	// <EntityName>Repository repo;
 
-	/**
-	 * This BusinessAction's purpose is: null
-	 * TODO: Implement
-	 */
+	@Autowired
+	Mitarbeiter_Repository mitarbeiter_repository;
+
+	@Autowired
+	Aufgabe_Repository aufgabe_repository;
+
+	public static final String HOST = "mail01.muenchen.de";
+	public static final String FROM = "test@muenchen.de";
+
 	@Override
 	public void mitarbeiterInformieren(){
-		
-		throw new UnsupportedOperationException("The BusinessAction mitarbeiterinformieren is not yet implemented!");
+		Properties properties = System.getProperties();
+		Session session = Session.getDefaultInstance(properties);
+		properties.setProperty("mail.smtp.host", HOST);
+
+		StreamSupport.stream(mitarbeiter_repository.findAll().spliterator(), false).forEach(mitarbeiter_ -> {
+			final String to = mitarbeiter_.getMail();
+			final String name = mitarbeiter_.getName();
+
+			try {
+				MimeMessage message = new MimeMessage(session);
+				message.setFrom(new InternetAddress(FROM));
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+				message.setSubject(String.format("Ihre Aufgabenübersicht, %s", name));
+				StringBuilder builder = new StringBuilder("Ihre Aufgaben:\n\n");
+
+				aufgabe_repository.findByBearbeiterOid(mitarbeiter_.getOid()).stream().forEach(aufgabe_ -> {
+					builder.append("Beschreibung: ").append(aufgabe_.getBeschreibung())
+							.append("\n")
+							.append("Priorität: ").append(aufgabe_.getPrioritaet())
+							.append("\n")
+							.append("Fällig am: ").append(DateFormat.getInstance().format(aufgabe_.getFaelligAm()))
+							.append("\n\n");
+				});
+
+				message.setText(builder.toString());
+
+				// Send message
+				Transport.send(message);
+				System.out.println("Sent message successfully....");
+			} catch (javax.mail.MessagingException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 }
