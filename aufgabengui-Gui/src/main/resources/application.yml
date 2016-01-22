@@ -1,0 +1,324 @@
+spring:
+  profiles:
+    active: local
+  #i18n
+  messages:
+        basename: messages
+        cache-seconds: -1
+        encoding: UTF-8
+info.url: http://localhost:${server.port}/
+
+management.address: 127.0.0.1
+endpoints.shutdown.enabled: true
+
+# Security
+security.oauth2.client.id : acme
+security.oauth2.jwt.signingKey: secret
+
+#Logging
+logging.level.org.springframework.cloud.netflix.config : 'OFF'
+logging.level.com.netflix.discovery : 'OFF'
+---
+spring:
+    profiles: docker
+---
+spring:
+    profiles: local
+---
+spring:
+    profiles: vm
+---
+
+# Microservice-names
+AUFGABENSERVICE.microservice.basePath: http://AUFGABENSERVICE-MICROSERVICE
+
+#=======================================#
+#           I18N-Messages               #
+#=======================================#
+
+# Allgemeines
+i18n.supported : de-DE
+i18n.fallback : de-DE
+
+i18n.de-DE.sprache.title : Sprache
+i18n.de-DE.mainpage.title : Startseite
+i18n.de-DE.page.title : AufgabenGUI
+
+i18n.de-DE.confirmation_.header.text : Achtung!
+i18n.de-DE.confirmation_.logout.text : Wollen Sie sich wirklich ausloggen?
+i18n.de-DE.confirmation_.logout.confirm : Logout
+i18n.de-DE.confirmation_.logout.cancel : Abbrechen
+
+i18n.de-DE.confirmation_.override.text : Wollen Sie den aktuellen Eintrag überschreiben?
+i18n.de-DE.confirmation_.override.confirm : Überschreiben
+i18n.de-DE.confirmation_.override.cancel : Abbrechen
+
+# Used as conversion-error message for Tokenfields
+# https://vaadin.com/api/com/vaadin/ui/AbstractField.html#setConversionError%28java.lang.String%29
+i18n.de-DE.tokenfield.conversion.error:
+   long: Nur Zahlen erlaubt.
+   date: "Datumsformat: dd.MM.yyyy"
+   boolean: True und false erlaubt.
+   string: Texte erlaubt.
+   other: Ungültiges Format {1}
+
+
+
+#=======================================#
+#                Views                  #
+#=======================================#
+i18n.de-DE.view_.mitarbeiterErstellen.title : MitarbeiterErstellen
+i18n.de-DE.view_.mitarbeiterErstellen.component1.button.save.label : Save
+i18n.de-DE.view_.mitarbeiterErstellen.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.mitarbeiter.title : Mitarbeiter
+i18n.de-DE.view_.mitarbeiter.button.informieren.label : Informieren
+i18n.de-DE.view_.mitarbeiter.component2.button.detail.label : Detail
+i18n.de-DE.view_.mitarbeiter.component2.button.edit.label : Edit
+i18n.de-DE.view_.mitarbeiter.component2.button.create.label : Create
+i18n.de-DE.view_.mitarbeiter.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.mainview.title : Mainview
+i18n.de-DE.view_.mainview.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.aufgaben.title : Aufgaben
+i18n.de-DE.view_.aufgaben.component1.button.edit.label : Edit
+i18n.de-DE.view_.aufgaben.component1.button.detail.label : Detail
+i18n.de-DE.view_.aufgaben.component1.button.create.label : Create
+i18n.de-DE.view_.aufgaben.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.aufgabeBearbeiten.title : AufgabeBearbeiten
+i18n.de-DE.view_.aufgabeBearbeiten.component1.button.detail.label : Detail
+i18n.de-DE.view_.aufgabeBearbeiten.component1.button.add.label : Add
+i18n.de-DE.view_.aufgabeBearbeiten.component1.button.create.label : Create
+i18n.de-DE.view_.aufgabeBearbeiten.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.aufgabeErstellen.title : AufgabeErstellen
+i18n.de-DE.view_.aufgabeErstellen.component1.button.save.label : Save
+i18n.de-DE.view_.aufgabeErstellen.helptext : Für diese Seite existiert keine Beschreibung
+
+i18n.de-DE.view_.bearbeiterHinzufuegen.title : BearbeiterHinzufuegen
+i18n.de-DE.view_.bearbeiterHinzufuegen.component1.button.save.label : Save
+i18n.de-DE.view_.bearbeiterHinzufuegen.helptext : Für diese Seite existiert keine Beschreibung
+
+#=======================================#
+# Service: AufgabenService
+#=======================================#
+
+# Icons (no localization)
+## Entity Mitarbeiter - Icons
+mitarbeiter:
+   name.column_header.icon :
+   mail.column_header.icon :
+
+## Entity Aufgabe - Icons
+aufgabe:
+   beschreibung.column_header.icon :
+   prioritaet.column_header.icon :
+   faelligAm.column_header.icon :
+   bearbeiter.column_header.icon :
+
+# Entity Mitarbeiter
+i18n.de-DE.mitarbeiter.form:
+   update.headline.label : Mitarbeiter bearbeiten
+   create.headline.label : Mitarbeiter erstellen
+   add.headline.label : Mitarbeiter hinzufügen
+   read.headline.label : Mitarbeiter Details
+   history.headline.label : Mitarbeiter History
+   update.button.label : bearbeiten
+   create.button.label : neu
+   cancel.button.label : abbrechen
+   back.button.label : zurück
+   save.button.label : speichern
+   add.button.label : hinzufügen
+   delete.button.label : löschen
+   copy.button.label : kopieren
+   read.button.label : Details
+
+i18n.de-DE.mitarbeiter.table_buttons.column_header : Aktionen
+
+## Entity Mitarbeiter - Attribute Name
+i18n.de-DE.mitarbeiter.name:
+   label : Name*
+   column_header : Name
+   input_prompt : Name
+   tooltip : 
+## Entity Mitarbeiter - Attribute Mail
+i18n.de-DE.mitarbeiter.mail:
+   label : Mail*
+   column_header : Mail
+   input_prompt : Mail
+   tooltip : 
+
+## Entity Mitarbeiter - Aktionsmeldungen
+
+### Entity Mitarbeiter - Success
+i18n.de-DE.mitarbeiter.notification.success:
+   update.label : Mitarbeiter angepasst
+   update.text : Mitarbeiter wurde erfolgreich angepasst und gespeichert.
+   save.label : Mitarbeiter erstellt
+   save.text : Mitarbeiter wurde erfolgreich erstellt und gespeichert.
+   delete.label : Mitarbeiter gelöscht
+   delete.text : Mitarbeiter wurde erfolgreich gelöscht.
+   copy.label : Mitarbeiter kopiert
+   copy.text : Mitarbeiter wurde erfolgreich kopiert.
+   release.label : Mitarbeiter entfernt
+   release.text : Mitarbeiter wurde erfolgreich entfernt.
+   add.label : Mitarbeiter hinzugefügt
+   add.text : Mitarbeiter wurde erfolgreich zum Mitarbeiter hinzugefügt.
+   association.label : Änderung gespeichert
+   association.text : Die Änderung wurde erfolgreich gespeichert.
+   
+### Entity Mitarbeiter - Warnings
+i18n.de-DE.mitarbeiter.notification.warning:
+   save.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   save.label : Warnung
+   update.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   update.label : Warnung
+
+### Entity Mitarbeiter - Errors
+i18n.de-DE.mitarbeiter.notification.error.create:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu speichern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim erstellen ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.update:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern ist ein Fehler aufgetreten. Änderung wurde nicht gespeichert.
+
+i18n.de-DE.mitarbeiter.notification.error.read:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu laden ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim Lesen ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.association:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Assoziation zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern der Assoziation ist ein Fehler aufgetreten.
+
+i18n.de-DE.mitarbeiter.notification.error.delete:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu löschen ist eine Zeitüberschreitung aufgetreten.
+   label.409 : Konflikt
+   text.409 : Mitarbeiter wird in anderer Entität referenziert. Löschen nicht möglich.
+   label.400 : Nicht gefunden
+   text.400 : Mitarbeiter existiert nicht.
+   label : Fehler
+   text : Ein Fehler ist aufgetreten. Löschen nicht möglich.
+
+# Entity Aufgabe
+i18n.de-DE.aufgabe.form:
+   update.headline.label : Aufgabe bearbeiten
+   create.headline.label : Aufgabe erstellen
+   add.headline.label : Aufgabe hinzufügen
+   read.headline.label : Aufgabe Details
+   history.headline.label : Aufgabe History
+   update.button.label : bearbeiten
+   create.button.label : neu
+   cancel.button.label : abbrechen
+   back.button.label : zurück
+   save.button.label : speichern
+   add.button.label : hinzufügen
+   delete.button.label : löschen
+   copy.button.label : kopieren
+   read.button.label : Details
+
+i18n.de-DE.aufgabe.table_buttons.column_header : Aktionen
+
+## Entity Aufgabe - Attribute Beschreibung
+i18n.de-DE.aufgabe.beschreibung:
+   label : Beschreibung*
+   column_header : Beschreibung
+   input_prompt : Beschreibung
+   tooltip : 
+## Entity Aufgabe - Attribute Prioritaet
+i18n.de-DE.aufgabe.prioritaet:
+   label : Prioritaet*
+   column_header : Prioritaet
+   input_prompt : Prioritaet
+   tooltip : 
+## Entity Aufgabe - Attribute FaelligAm
+i18n.de-DE.aufgabe.faelligAm:
+   label : FaelligAm*
+   column_header : FaelligAm
+   input_prompt : FaelligAm
+   tooltip : 
+## Entity Aufgabe - Attribute Bearbeiter
+i18n.de-DE.aufgabe.bearbeiter:
+   label : Bearbeiter
+   column_header : Bearbeiter
+   input_prompt : Bearbeiter
+   tooltip : 
+
+## Entity Aufgabe - Aktionsmeldungen
+
+### Entity Aufgabe - Success
+i18n.de-DE.aufgabe.notification.success:
+   update.label : Aufgabe angepasst
+   update.text : Aufgabe wurde erfolgreich angepasst und gespeichert.
+   save.label : Aufgabe erstellt
+   save.text : Aufgabe wurde erfolgreich erstellt und gespeichert.
+   delete.label : Aufgabe gelöscht
+   delete.text : Aufgabe wurde erfolgreich gelöscht.
+   copy.label : Aufgabe kopiert
+   copy.text : Aufgabe wurde erfolgreich kopiert.
+   release.label : Aufgabe entfernt
+   release.text : Aufgabe wurde erfolgreich entfernt.
+   add.label : Aufgabe hinzugefügt
+   add.text : Aufgabe wurde erfolgreich zum Aufgabe hinzugefügt.
+   association.label : Änderung gespeichert
+   association.text : Die Änderung wurde erfolgreich gespeichert.
+   
+   release.label.bearbeiter : Bearbeiter entfernt
+   release.text.bearbeiter : Bearbeiter wurde erfolgreich entfernt.
+   
+### Entity Aufgabe - Warnings
+i18n.de-DE.aufgabe.notification.warning:
+   save.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   save.label : Warnung
+   update.text : Bitte füllen Sie alle Felder mit gültigen Werten aus.
+   update.label : Warnung
+
+### Entity Aufgabe - Errors
+i18n.de-DE.aufgabe.notification.error.create:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu speichern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim erstellen ist ein Fehler aufgetreten.
+
+i18n.de-DE.aufgabe.notification.error.update:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern ist ein Fehler aufgetreten. Änderung wurde nicht gespeichert.
+
+i18n.de-DE.aufgabe.notification.error.read:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu laden ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim Lesen ist ein Fehler aufgetreten.
+
+i18n.de-DE.aufgabe.notification.error.association:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Assoziation zu ändern ist eine Zeitüberschreitung aufgetreten.
+   label : Fehler
+   text : Beim ändern der Assoziation ist ein Fehler aufgetreten.
+
+i18n.de-DE.aufgabe.notification.error.delete:
+   label.timeout : Zeitüberschreitung
+   text.timeout : Beim Versuch die Daten zu löschen ist eine Zeitüberschreitung aufgetreten.
+   label.409 : Konflikt
+   text.409 : Aufgabe wird in anderer Entität referenziert. Löschen nicht möglich.
+   label.400 : Nicht gefunden
+   text.400 : Aufgabe existiert nicht.
+   label : Fehler
+   text : Ein Fehler ist aufgetreten. Löschen nicht möglich.
+
+
+# End of AufgabenService section
+
