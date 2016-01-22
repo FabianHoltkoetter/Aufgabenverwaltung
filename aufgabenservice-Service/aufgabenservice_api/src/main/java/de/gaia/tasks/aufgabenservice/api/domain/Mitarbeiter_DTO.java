@@ -12,6 +12,8 @@ public class Mitarbeiter_DTO extends BaseEntity {
 	
 	private String mail;
 	
+	private java.util.Date geburtsdatum;
+	
 	// Getters and Setters
 	public String getName(){
 		return name;
@@ -27,10 +29,18 @@ public class Mitarbeiter_DTO extends BaseEntity {
 		this.mail = mail;
 	}
 	
+	public java.util.Date getGeburtsdatum(){
+		return geburtsdatum;
+	}
+	public void setGeburtsdatum(java.util.Date geburtsdatum){
+		this.geburtsdatum = geburtsdatum;
+	}
+	
 	@Override
 	public String toString() {
-	   	return String.format("%s = {\"name\": \"%s\", \"mail\": \"%s\"}", getClass(),
+	   	return String.format("%s = {\"name\": \"%s\", \"mail\": \"%s\", \"geburtsdatum\": \"%s\"}", getClass(),
 	   		this.name,
-	   		this.mail);
+	   		this.mail,
+	   		this.geburtsdatum);
 	}
 }

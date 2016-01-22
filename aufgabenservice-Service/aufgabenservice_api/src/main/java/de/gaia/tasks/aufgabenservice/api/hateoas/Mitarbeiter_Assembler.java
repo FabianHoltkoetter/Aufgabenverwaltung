@@ -22,6 +22,7 @@ public class Mitarbeiter_Assembler {
 		Mitarbeiter_DTO mitarbeiterDTO = resource.getContent();
 		Mitarbeiter_ bean = new Mitarbeiter_();		bean.setName(mitarbeiterDTO.getName());
 		bean.setMail(mitarbeiterDTO.getMail());
+		bean.setGeburtsdatum(mitarbeiterDTO.getGeburtsdatum());
 		bean.add(resource.getLinks());
 		return bean;
 	}
@@ -36,6 +37,7 @@ public class Mitarbeiter_Assembler {
 		Mitarbeiter_DTO mitarbeiterDTO = new Mitarbeiter_DTO();
 		mitarbeiterDTO.setName(bean.getName());
 		mitarbeiterDTO.setMail(bean.getMail());
+		mitarbeiterDTO.setGeburtsdatum(bean.getGeburtsdatum());
 		return new Mitarbeiter_Resource(mitarbeiterDTO, bean.getLinks());
 	}
 }

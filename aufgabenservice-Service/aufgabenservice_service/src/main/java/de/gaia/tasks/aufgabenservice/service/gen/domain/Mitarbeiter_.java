@@ -1,10 +1,13 @@
 package de.gaia.tasks.aufgabenservice.service.gen.domain;
 
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;	
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.Indexed;
 import de.muenchen.service.BaseEntity;
 import de.muenchen.auditing.MUCAudited;
@@ -40,6 +43,13 @@ public class Mitarbeiter_ extends BaseEntity {
 	private String mail;
 	
 	
+	@Column(name="geburtsdatum")
+	@Temporal(TemporalType.DATE)
+	@NotNull
+	@Past
+	private java.util.Date geburtsdatum;
+	
+	
 	/**
 	 * Default Constructor for Mitarbeiter.
 	 */
@@ -66,6 +76,15 @@ public class Mitarbeiter_ extends BaseEntity {
 	}
 	
 	
+	public java.util.Date getGeburtsdatum(){
+		return geburtsdatum;
+	}
+	
+	public void setGeburtsdatum(java.util.Date geburtsdatum){
+		this.geburtsdatum = geburtsdatum;
+	}
+	
+	
 	/**
 	 * Returns a String representation for this Mitarbeiter.
 	 * The form is: 
@@ -79,6 +98,7 @@ public class Mitarbeiter_ extends BaseEntity {
 		String s = "Mitarbeiter";
 		s += "\nString name: " + getName();
 		s += "\nString mail: " + getMail();
+		s += "\njava.util.Date geburtsdatum: " + getGeburtsdatum();
 		return s;
 	}
 }

@@ -7,6 +7,7 @@ package de.gaia.tasks.aufgabenservice.api.local;
 import java.util.stream.Stream;
 
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.NotNull;
 import org.springframework.hateoas.ResourceSupport;
 /*
@@ -22,17 +23,23 @@ public class Mitarbeiter_ extends ResourceSupport {
 	@Size(min=1, max=50)
 	private String mail;
 	
+	@NotNull
+	@Past
+	private java.util.Date geburtsdatum;
+	
 	public Mitarbeiter_(){}
 	
 	/**
-     * Create a new Mitarbeiter_ with the  name, mail.
+     * Create a new Mitarbeiter_ with the  name, mail, geburtsdatum.
      *
      * @param name the name of the Mitarbeiter_.
      * @param mail the mail of the Mitarbeiter_.
+     * @param geburtsdatum the geburtsdatum of the Mitarbeiter_.
      */
-    public Mitarbeiter_( String name, String mail) {
+    public Mitarbeiter_( String name, String mail, java.util.Date geburtsdatum) {
         this.setName(name);
         this.setMail(mail);
+        this.setGeburtsdatum(geburtsdatum);
     }
 	
 	// Getters and Setters
@@ -52,6 +59,14 @@ public class Mitarbeiter_ extends ResourceSupport {
 		this.mail = mail;
 	}
 	
+	public java.util.Date getGeburtsdatum(){
+		return geburtsdatum;
+	}
+	
+	public void setGeburtsdatum(java.util.Date geburtsdatum){
+		this.geburtsdatum = geburtsdatum;
+	}
+	
 	 /**
       * A simple Enum for all the Fields of this Mitarbeiter_.
       * <p>
@@ -59,7 +74,7 @@ public class Mitarbeiter_ extends ResourceSupport {
       * </p>
       */
 	public enum Field {
-        name, mail;
+        name, mail, geburtsdatum;
 
         private final boolean field;
 
@@ -95,6 +110,7 @@ public class Mitarbeiter_ extends ResourceSupport {
 		String s = "";
 		s += "String name: " + this.getName();
 		s += "String mail: " + this.getMail();
+		s += "java.util.Date geburtsdatum: " + this.getGeburtsdatum();
 		return s;
 	}
 }
